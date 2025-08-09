@@ -4,11 +4,11 @@ import config from './utils/config.js';
 class MailSender {
   constructor() {
     this._transporter = nodemailer.createTransport({
-      host: config.nodemailer.smtpHost,
-      port: config.nodemailer.smtpPort,
+      host: process.env.SMTP_HOST,
+      port: process.env.SMTP_PORT,
       auth: {
-        user: config.nodemailer.smtpUser,
-        pass: config.nodemailer.smtpPassword,
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASSWORD,
       },
     });
   }
